@@ -23,7 +23,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="@string/typeListName" />
+                android:hint="@string/typeListName"
+                />
 
             <Button
                 android:id="@+id/button"
