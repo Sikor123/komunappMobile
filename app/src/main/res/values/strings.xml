@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">komunappMobile</string>
-    <string name="add_splist_name">New Shopping List</string>
+    <string name="add_splist_name">Add</string>
+    <string name="typeListName">List Name</string>
 </resources>
