@@ -2,4 +2,5 @@
     <string name="app_name">komunappMobile</string>
     <string name="add_splist_name">Add</string>
     <string name="typeListName">List Name</string>
+    <string name="title_activity_login">LoginActivity</string>
 </resources>
