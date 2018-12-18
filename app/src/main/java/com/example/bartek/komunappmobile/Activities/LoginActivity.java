@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.Header;
 import com.android.volley.NetworkResponse;
@@ -23,6 +24,8 @@ import com.example.bartek.komunappmobile.R;
 import com.example.bartek.komunappmobile.jsonObjectRequest.LoginRequest;
 import com.example.bartek.komunappmobile.jsony.LoginBody;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,40 +33,50 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 
 public class LoginActivity extends AppCompatActivity {
-    String URL = "http://192.168.0.2";
-    String port = "8080";
-    String devApi = "/user/sign-up";
+    private void startsActivity(){
+        Intent intent = new Intent(this,ShoppingActivity.class);
+        startActivity(intent);
+    }
+    String URL = "http://192.168.99.1";
+    String port = ":8080";
+    String devApi = "/login";
     Gson gson = new Gson();
-    Header[] headers ;
-    public void tapLogin(View v) {
+    //
+    public void tapLogin(View v) throws JSONException {
         EditText login = findViewById(R.id.editLogin);
         EditText password = findViewById(R.id.editPassword);
-        Log.e("RestResponse" , URL +":" + port + devApi+"\n");
+        Log.e("RestResponse" , URL  + port + devApi+"\n");
         LoginBody loginBody = new LoginBody(login.getText().toString() ,  password.getText().toString());
         Log.e("RestResponse" , gson.toJson(loginBody));
+
+        JsonObject json = new JsonParser().parse(gson.toJson(loginBody)).getAsJsonObject();
+
+        JSONObject jo2 = new JSONObject(gson.toJson(loginBody));
+        Log.e("Rest new" , jo2.toString());
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         LoginRequest objectRequest = new LoginRequest(
-                Request.Method.GET,
-                "https://jsonplaceholder.typicode.com/todos/1",
-                null,
+                Request.Method.POST,
+                URL + port + devApi,
+                jo2,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("RestResponse" , response.toString());
+                        Log.e("RResponse" , response.toString());
+                        startsActivity();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.e("Rest Response" , error.toString());
+                        Toast.makeText(LoginActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
                     }
                 }
 
         );
 
         requestQueue.add(objectRequest);
-        Intent intent = new Intent(this,ShoppingActivity.class);
-        startActivity(intent);
+
 
     }
 
