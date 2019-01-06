@@ -58,4 +58,19 @@ public class ShoppingList {
     public void setDate(String date) {
         this.date = date;
     }
+
+    public ShoppingList(int shoppingListId, int userId, int flatId, String description, String date, ArrayList<ShoppingItem> shopping) {
+        this.shoppingListId = shoppingListId;
+        this.userId = userId;
+        this.flatId = flatId;
+        this.description = description;
+        this.date = date;
+        this.shopping = shopping;
+
+    }
+
+    public ShoppingList(String description) {
+        this.description = description;
+        shopping = new ArrayList<ShoppingItem> ();
+    }
 }

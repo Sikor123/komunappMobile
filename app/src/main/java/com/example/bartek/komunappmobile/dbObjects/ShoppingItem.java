@@ -19,4 +19,9 @@ public class ShoppingItem {
     public void setPrice(int price) {
         this.price = price;
     }
+
+    public ShoppingItem(String description, int price) {
+        this.description = description;
+        this.price = price;
+    }
 }
