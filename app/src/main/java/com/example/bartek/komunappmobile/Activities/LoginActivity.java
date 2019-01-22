@@ -25,13 +25,13 @@ import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
     private void startsActivity(){
-        Intent intent = new Intent(this,ShoppingActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
     String URL = "http://192.168.99.1";
     String port = ":8080";
     String devApi = "/login";
-    Gson gson = new Gson();
+        Gson gson = new Gson();
     //
     public void tapLogin(View v) throws JSONException {
         EditText login = findViewById(R.id.editLogin);
