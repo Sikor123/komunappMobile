@@ -6,16 +6,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.example.bartek.komunappmobile.R;
-import com.example.bartek.komunappmobile.dbObjects.ShoppingItem;
-import com.example.bartek.komunappmobile.dbObjects.ShoppingList;
-
 import java.util.ArrayList;
 
 public class AddList extends AppCompatActivity {
@@ -23,32 +18,17 @@ public class AddList extends AppCompatActivity {
     TextView nameText ;
     ArrayList<String> products = new ArrayList<>();
     String listName;
+    ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_list);
         nameText = findViewById(R.id.addListName);
         Intent i = getIntent();
-
         listName = i.getStringExtra("ListName");
-//        shoppingLists = ( ArrayList<ShoppingList>)  i.getSerializableExtra("shoppingLists");
-
-
-        ListView listView =  findViewById(R.id.shopping) ;
-        products.add("");
-        products.add("");
-        products.add("");
-
+        listView =  findViewById(R.id.shopping) ;
         customAdapter = new CustomAdapter();
         listView.setAdapter(customAdapter);
-
-//       ArrayAdapter<ArrayList> arrayAdapter = new ArrayAdapter<ArrayList>(this , android.R.layout.simple_list_item_1  , shoppingLists.get(shoppingLists.size()).getShopping() );
-//       listView.setAdapter(arrayAdapter);
-        Log.e("pierwszy" , "jestem2");
-
-
-
-        Log.e("name", listName);
         nameText.setText(listName);
     }
 
@@ -58,7 +38,6 @@ public class AddList extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        
         Log.e("pierwszy" , "jestem3");
         Log.e("pierwszy" , String.valueOf(products.size()));
         Intent intent = new Intent();
@@ -67,6 +46,16 @@ public class AddList extends AppCompatActivity {
         setResult(RESULT_OK , intent);
         finish();
     }
+
+    public void addShoppingItem(View view) {
+        EditText text = findViewById(R.id.itemName);
+        String name = text.getText().toString();
+        products.add(name);
+        text.setText("");
+        listView.setAdapter(customAdapter);
+    }
+
+
 
     class CustomAdapter extends BaseAdapter{
 
@@ -88,9 +77,9 @@ public class AddList extends AppCompatActivity {
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
             view = getLayoutInflater().inflate(R.layout.shop_item,null);
-            EditText editText = view.findViewById(R.id.itemName);
+            TextView textView = view.findViewById(R.id.itemName);
 
-            editText.setText(products.get(i));
+            textView.setText(products.get(i));
             return view;
         }
     }

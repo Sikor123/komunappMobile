@@ -27,18 +27,11 @@ public class OpenList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_open_list);
-        setContentView(R.layout.activity_add_list);
-        nameText = findViewById(R.id.viewListName);
-        Intent i = getIntent();
 
+        Intent i = getIntent();
         listName = i.getStringExtra("ListName");
         products = i.getStringArrayListExtra("products");
-//        shoppingLists = ( ArrayList<ShoppingList>)  i.getSerializableExtra("shoppingLists");
-
-
-        ListView listView =  findViewById(R.id.shopping) ;
-
-
+        ListView listView =  findViewById(R.id.shoppingView) ;
         CustomAdapter customAdapter = new CustomAdapter();
         listView.setAdapter(customAdapter);
 
@@ -47,9 +40,13 @@ public class OpenList extends AppCompatActivity {
         Log.e("pierwszy" , "jestem2");
 
 
-
+        nameText = findViewById(R.id.viewListName);
         Log.e("name", listName);
         nameText.setText(listName);
+    }
+
+    public void done(View view) {
+        finish();
     }
 
 

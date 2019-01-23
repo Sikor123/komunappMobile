@@ -36,11 +36,19 @@ public class ShoppingActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
+                openList(pos);
                 Toast.makeText(ShoppingActivity.this,shoppingLists.get(pos).getDescription() , Toast.LENGTH_SHORT).show();
                // Log.e("wow" , shoppingLists.get(pos).getDescription());
             }
         });
 
+    }
+
+    private void openList(int pos){
+        Intent i = new Intent(this , OpenList.class);
+        i.putStringArrayListExtra("products" , shoppingLists.get(pos).getStringShopping()) ;
+        i.putExtra("ListName" , shoppingLists.get(pos).getDescription());
+        startActivity(i);
     }
 
     public void addShoppingList(View view) {
@@ -85,13 +93,11 @@ public class ShoppingActivity extends AppCompatActivity {
         Log.e("pierwszy" , String.valueOf(data.getStringArrayListExtra("products").size()));
         String n = data.getStringExtra("name");
         ArrayList<String> l = data.getStringArrayListExtra("products");
-
         ArrayList<ShoppingItem> shopping  = new ArrayList<ShoppingItem>();
         for (String item: l
              ) {
             shopping.add(new ShoppingItem(item , 0));
         }
-
         shoppingLists.add(new ShoppingList(n,shopping));
         listName.setText("");
         Log.e("pierwszy" , "koniec");

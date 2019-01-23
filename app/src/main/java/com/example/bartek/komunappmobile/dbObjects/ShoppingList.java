@@ -15,6 +15,16 @@ public class ShoppingList {
         return shopping;
     }
 
+    public ArrayList<String> getStringShopping() {
+
+        ArrayList<String> l = new ArrayList<>();
+        for (ShoppingItem nazwa:shopping
+             ) {
+            l.add(nazwa.getDescription());
+        }
+        return l;
+    }
+
     public void setShopping(ArrayList<ShoppingItem> shopping) {
         this.shopping = shopping;
     }
@@ -68,6 +78,7 @@ public class ShoppingList {
         this.shopping = shopping;
 
     }
+
 
     public ShoppingList(String description, ArrayList<ShoppingItem> shopping) {
         this.description = description;
