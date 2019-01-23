@@ -69,6 +69,11 @@ public class ShoppingList {
 
     }
 
+    public ShoppingList(String description, ArrayList<ShoppingItem> shopping) {
+        this.description = description;
+        this.shopping = shopping;
+    }
+
     public ShoppingList(String description) {
         this.description = description;
         shopping = new ArrayList<ShoppingItem> ();

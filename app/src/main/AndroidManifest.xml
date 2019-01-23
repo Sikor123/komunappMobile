@@ -27,7 +27,11 @@
         <activity android:name=".Activities.FlatActivity" />
         <activity android:name=".Activities.DiscussionActivity" />
         <activity android:name=".Activities.PaymentActivity" />
-        <activity android:name=".Activities.TaskActivity"></activity>
+        <activity android:name=".Activities.TaskActivity" />
+        <activity
+            android:name=".Activities.OpenList"
+            android:label="@string/title_activity_open_list"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

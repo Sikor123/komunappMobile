@@ -13,4 +13,5 @@
     <string name="welcome">Welcome</string>
     <string name="btn_logout">LOGOUT</string>
     <string name="name">Fullname</string>
+    <string name="title_activity_open_list">OpenList</string>
 </resources>

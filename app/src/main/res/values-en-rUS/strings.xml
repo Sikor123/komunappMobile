@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">komunappMobile</string>
     <string name="add_splist_name">Add</string>
     <string name="typeListName">List Name</string>
+    <string name="title_activity_login">LoginActivity</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
     <string name="hint_name">Full Name</string>
@@ -13,4 +13,5 @@
     <string name="welcome">Welcome</string>
     <string name="btn_logout">LOGOUT</string>
     <string name="name">Fullname</string>
+    <string name="title_activity_open_list">OpenList</string>
 </resources>
