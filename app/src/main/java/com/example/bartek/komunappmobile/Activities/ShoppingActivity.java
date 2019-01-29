@@ -14,13 +14,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bartek.komunappmobile.R;
+import com.example.bartek.komunappmobile.data.UserData;
 import com.example.bartek.komunappmobile.dbObjects.ShoppingItem;
 import com.example.bartek.komunappmobile.dbObjects.ShoppingList;
 
 import java.util.ArrayList;
 
 public class ShoppingActivity extends AppCompatActivity {
-    private ArrayList<ShoppingList> shoppingLists = new ArrayList<ShoppingList>();
+    private ArrayList<ShoppingList> shoppingLists = UserData.getShoppingLists();
     EditText listName ;
     ListView listView;
 

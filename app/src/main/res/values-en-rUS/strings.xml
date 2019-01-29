@@ -4,6 +4,7 @@
     <string name="typeListName">List Name</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="hint_email">Email</string>
+    <string name="hint_login">Login</string>
     <string name="hint_password">Password</string>
     <string name="hint_name">Full Name</string>
     <string name="btn_login">LOGIN</string>
@@ -14,4 +15,8 @@
     <string name="btn_logout">LOGOUT</string>
     <string name="name">Fullname</string>
     <string name="title_activity_open_list">OpenList</string>
+    <string name="btn_join">JOIN</string>
+    <string name="btn_add">ADD</string>
+    <string name="hint_flatname">Flatname</string>
+    <string name="btn_link_to_create">Flat not registered yet? Do it now.</string>
 </resources>
