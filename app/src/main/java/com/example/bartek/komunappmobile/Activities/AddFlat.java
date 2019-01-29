@@ -1,11 +1,10 @@
 package com.example.bartek.komunappmobile.Activities;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -24,18 +23,18 @@ import com.google.gson.JsonParser;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class FlatActivity extends AppCompatActivity {
+public class AddFlat extends AppCompatActivity {
     private void startsActivity(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
     String URL = "https://komunapp.herokuapp.com";
-    String devApi = "/user/flat";
+    String devApi = "/flat";
     Gson gson = new Gson();
     //
-    public void tapJoin(View v) throws JSONException {
-        EditText flatName = findViewById(R.id.editFlatName);
-        EditText password = findViewById(R.id.editPasswordFlat);
+    public void tapAdd(View v) throws JSONException {
+        EditText flatName = findViewById(R.id.editFlatNameAdd);
+        EditText password = findViewById(R.id.editPasswordFlatAdd);
         Log.e("RestResponse" , URL + devApi+"\n");
         FlatBody flatBody = new FlatBody(flatName.getText().toString() ,  password.getText().toString());
         Log.e("RestResponse" , gson.toJson(flatBody));
@@ -46,7 +45,7 @@ public class FlatActivity extends AppCompatActivity {
         Log.e("Rest new" , jo2.toString());
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         FlatRequest objectRequest = new FlatRequest(
-                Request.Method.PUT,
+                Request.Method.POST,
                 URL + devApi,
                 jo2,
                 new Response.Listener<JSONObject>() {
@@ -60,7 +59,7 @@ public class FlatActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.e("Rest Response" , error.toString());
-                        Toast.makeText(FlatActivity.this, "Invalid flatname or password", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddFlat.this, "Invalid flatname or password", Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -74,15 +73,6 @@ public class FlatActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flat);
-
-        Button addFlatButton = (Button)findViewById(R.id.btnLinkToNewFlat);
-        addFlatButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent i = new Intent(getApplicationContext(), AddFlat.class);
-                startActivity(i);
-            }
-        });
+        setContentView(R.layout.activity_add_flat);
     }
 }

@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activities.AddFlat"></activity>
         <activity android:name=".Activities.MainActivity" />
         <activity android:name=".Activities.ShoppingActivity" />
         <activity android:name=".Activities.AddList" />
@@ -31,7 +32,7 @@
         <activity
             android:name=".Activities.OpenList"
             android:label="@string/title_activity_open_list"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

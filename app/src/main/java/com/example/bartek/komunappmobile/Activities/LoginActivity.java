@@ -28,15 +28,14 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-    String URL = "http://192.168.99.1";
-    String port = ":8080";
+    String URL = "https://komunapp.herokuapp.com";
     String devApi = "/login";
         Gson gson = new Gson();
     //
     public void tapLogin(View v) throws JSONException {
         EditText login = findViewById(R.id.editLogin);
         EditText password = findViewById(R.id.editPassword);
-        Log.e("RestResponse" , URL  + port + devApi+"\n");
+        Log.e("RestResponse" , URL + devApi+"\n");
         LoginBody loginBody = new LoginBody(login.getText().toString() ,  password.getText().toString());
         Log.e("RestResponse" , gson.toJson(loginBody));
 
@@ -47,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         LoginRequest objectRequest = new LoginRequest(
                 Request.Method.POST,
-                URL + port + devApi,
+                URL + devApi,
                 jo2,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -67,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
         );
 
         requestQueue.add(objectRequest);
-        startsActivity();
+        //startsActivity();
 
     }
 
