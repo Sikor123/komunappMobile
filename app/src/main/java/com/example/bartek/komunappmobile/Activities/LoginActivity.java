@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private void startsActivity(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
     String URL = "https://komunapp.herokuapp.com";
     String devApi = "/login";

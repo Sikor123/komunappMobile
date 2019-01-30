@@ -46,6 +46,7 @@ public class FlatActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), AddFlat.class);
                 startActivity(i);
+                finish();
             }
         });
     }

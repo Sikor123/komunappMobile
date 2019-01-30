@@ -3,7 +3,7 @@
     <string name="add_splist_name">Add</string>
     <string name="typeListName">List Name</string>
     <string name="title_activity_login">LoginActivity</string>
-    <string name="hint_email">Login</string>
+    <string name="hint_email">email</string>
     <string name="hint_login">Login</string>
     <string name="hint_password">Password</string>
     <string name="hint_name">Full Name</string>
