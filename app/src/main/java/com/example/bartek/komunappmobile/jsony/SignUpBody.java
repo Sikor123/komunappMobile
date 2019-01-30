@@ -1,13 +1,13 @@
 package com.example.bartek.komunappmobile.jsony;
 
-public class SignInBody {
+public class SignUpBody {
     private String firstname;
     private String lastname;
     private String login;
     private String passwordhash;
     private String email;
 
-    public SignInBody(String firstname, String lastname, String login, String passwordhash, String email) {
+    public SignUpBody(String firstname, String lastname, String login, String passwordhash, String email) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.login = login;

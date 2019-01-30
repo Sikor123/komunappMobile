@@ -70,6 +70,11 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    public void typeSignup(View v){
+        Intent intent = new Intent(this, SignupActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
