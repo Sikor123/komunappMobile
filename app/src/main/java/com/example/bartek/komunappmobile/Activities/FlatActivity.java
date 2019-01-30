@@ -29,6 +29,26 @@ public class FlatActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_flat);
+
+        Button addFlatButton = (Button)findViewById(R.id.btnLinkToNewFlat);
+        addFlatButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent i = new Intent(getApplicationContext(), AddFlat.class);
+                startActivity(i);
+            }
+        });
+    }
+
+
+
+
+
     String URL = "https://komunapp.herokuapp.com";
     String devApi = "/user/flat";
     Gson gson = new Gson();
@@ -71,18 +91,4 @@ public class FlatActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flat);
-
-        Button addFlatButton = (Button)findViewById(R.id.btnLinkToNewFlat);
-        addFlatButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent i = new Intent(getApplicationContext(), AddFlat.class);
-                startActivity(i);
-            }
-        });
-    }
 }

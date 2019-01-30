@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/rounded"
-                android:hint="@string/hint_flatname"
+                android:hint="hint_flatname"
                 android:inputType="text"
                 android:padding="10dp"
                 android:singleLine="true"
@@ -57,7 +57,7 @@
                 android:layout_marginTop="15dip"
 
                 android:onClick="tapJoin"
-                android:text="@string/btn_join"
+                android:text="btn_join"
                 android:textColor="#fff" />
 
             <!-- Link to Sign Up Screen -->

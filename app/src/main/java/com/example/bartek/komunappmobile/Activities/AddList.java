@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.example.bartek.komunappmobile.R;
@@ -75,11 +76,21 @@ public class AddList extends AppCompatActivity {
         }
 
         @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
+        public View getView(final int i, View view, ViewGroup viewGroup) {
             view = getLayoutInflater().inflate(R.layout.shop_item,null);
             TextView textView = view.findViewById(R.id.itemName);
-
             textView.setText(products.get(i));
+
+            ImageView itemDelete = view.findViewById(R.id.itemDelete);
+
+            itemDelete.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    products.remove(i);
+                    notifyDataSetChanged();
+                    //TODO POLACZYC Z API - WYSYLANIE REQUESTA DO USUNIECIA ITEMU O ID i
+                }
+            });
+
             return view;
         }
     }
