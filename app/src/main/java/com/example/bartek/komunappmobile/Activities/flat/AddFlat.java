@@ -12,10 +12,10 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.bartek.komunappmobile.Activities.MainActivity;
 import com.example.bartek.komunappmobile.R;
-import com.example.bartek.komunappmobile.jsonObjectRequest.FlatRequest;
 import com.example.bartek.komunappmobile.jsony.FlatBody;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -45,7 +45,7 @@ public class AddFlat extends AppCompatActivity {
         JSONObject jo2 = new JSONObject(gson.toJson(flatBody));
         Log.e("Rest new" , jo2.toString());
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        FlatRequest objectRequest = new FlatRequest(
+        JsonObjectRequest objectRequest = new JsonObjectRequest(
                 Request.Method.POST,
                 URL + devApi,
                 jo2,
