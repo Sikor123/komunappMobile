@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -29,9 +30,12 @@ public class LoginActivity extends AppCompatActivity {
     }
     String URL = "https://komunapp.herokuapp.com";
     String devApi = "/login";
+    private ProgressBar progressBar;
         Gson gson = new Gson();
     //
     public void tapLogin(View v) throws JSONException {
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
         EditText login = findViewById(R.id.editLogin);
         EditText password = findViewById(R.id.editPassword);
 
@@ -52,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                         LoginResponse obj = gson.fromJson(response.toString(), LoginResponse.class);
                         Log.e("wow" , obj.getToken());
                         UserData.setToken(obj.getToken());
+                        progressBar.setVisibility(View.GONE);
                         startsActivity();
                     }
                 },
@@ -60,6 +65,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         Log.e("RResponse" , error.toString());
                         Toast.makeText(LoginActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+                        progressBar.setVisibility(View.GONE);
                     }
                 }
 
@@ -78,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login2);
         Log.e("Rest Response" , "I'm in");
 
 

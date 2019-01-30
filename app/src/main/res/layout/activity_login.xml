@@ -18,7 +18,7 @@
         >
 
         <EditText
-            android:id="@+id/editLogin"
+
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -31,7 +31,7 @@
             android:textColorHint="@color/input_login_hint" />
 
         <EditText
-            android:id="@+id/editPassword"
+
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -46,7 +46,7 @@
         <!-- Login Button -->
 
         <Button
-            android:id="@+id/btnLogin"
+
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dip"
@@ -58,7 +58,7 @@
         <!-- Link to Sign Up Screen -->
 
         <Button
-            android:id="@+id/btnLinkToRegisterScreen"
+
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dip"
