@@ -12,14 +12,17 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.bartek.komunappmobile.R;
+import com.example.bartek.komunappmobile.data.UserData;
 import com.example.bartek.komunappmobile.jsonObjectRequest.LoginRequest;
 import com.example.bartek.komunappmobile.jsony.LoginBody;
+import com.example.bartek.komunappmobile.jsony.LoginResponse;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -35,30 +38,31 @@ public class LoginActivity extends AppCompatActivity {
     public void tapLogin(View v) throws JSONException {
         EditText login = findViewById(R.id.editLogin);
         EditText password = findViewById(R.id.editPassword);
-        Log.e("RestResponse" , URL + devApi+"\n");
-        LoginBody loginBody = new LoginBody(login.getText().toString() ,  password.getText().toString());
-        Log.e("RestResponse" , gson.toJson(loginBody));
 
-        JsonObject json = new JsonParser().parse(gson.toJson(loginBody)).getAsJsonObject();
+        LoginBody loginBody = new LoginBody(login.getText().toString() ,  password.getText().toString());
 
         JSONObject jo2 = new JSONObject(gson.toJson(loginBody));
-        Log.e("Rest new" , jo2.toString());
+
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        LoginRequest objectRequest = new LoginRequest(
+
+        JsonObjectRequest objectRequest = new JsonObjectRequest(
                 Request.Method.POST,
                 URL + devApi,
                 jo2,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("RResponse" , response.toString());
+                        Gson gson = new Gson();
+                        LoginResponse obj = gson.fromJson(response.toString(), LoginResponse.class);
+                        Log.e("wow" , obj.getToken());
+                        UserData.setToken(obj.getToken());
                         startsActivity();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.e("Rest Response" , error.toString());
+                        Log.e("RResponse" , error.toString());
                         Toast.makeText(LoginActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -80,3 +84,5 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 }
+
+

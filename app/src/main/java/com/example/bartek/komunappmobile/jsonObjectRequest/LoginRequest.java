@@ -1,6 +1,7 @@
 package com.example.bartek.komunappmobile.jsonObjectRequest;
 
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;
@@ -29,9 +30,11 @@ public class LoginRequest extends JsonObjectRequest {
 
             String jsonString = new String(response.data,
                     HttpHeaderParser.parseCharset(response.headers, PROTOCOL_CHARSET));
+            Log.e("wow2" , jsonString);
             jsonString = "{}";
             JSONObject jsonResponse = new JSONObject(jsonString);
             jsonResponse.put("headers", new JSONObject(response.headers));
+
             return Response.success(jsonResponse,
                     HttpHeaderParser.parseCacheHeaders(response));
         } catch (UnsupportedEncodingException e) {

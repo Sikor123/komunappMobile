@@ -6,6 +6,15 @@ import java.util.ArrayList;
 
 public class UserData  {
     private static ArrayList<ShoppingList> shoppingLists = new ArrayList<ShoppingList>();
+    private static String token;
+
+    public static String getToken() {
+        return token;
+    }
+
+    public static void setToken(String token) {
+        UserData.token = token;
+    }
 
     public static ArrayList<ShoppingList> getShoppingLists() {
         return shoppingLists;
