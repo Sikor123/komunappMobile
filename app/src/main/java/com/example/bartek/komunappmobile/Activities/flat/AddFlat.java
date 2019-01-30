@@ -1,4 +1,4 @@
-package com.example.bartek.komunappmobile.Activities;
+package com.example.bartek.komunappmobile.Activities.flat;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +13,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
+import com.example.bartek.komunappmobile.Activities.MainActivity;
 import com.example.bartek.komunappmobile.R;
 import com.example.bartek.komunappmobile.jsonObjectRequest.FlatRequest;
 import com.example.bartek.komunappmobile.jsony.FlatBody;

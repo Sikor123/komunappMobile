@@ -1,4 +1,4 @@
-package com.example.bartek.komunappmobile.Activities;
+package com.example.bartek.komunappmobile.Activities.shopping;
 
 import android.content.Intent;
 import android.graphics.Color;

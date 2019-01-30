@@ -11,12 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.AddFlat"></activity>
+        <activity android:name=".Activities.flat.AddFlat"></activity>
         <activity android:name=".Activities.MainActivity" >
 
             </activity>
-        <activity android:name=".Activities.ShoppingActivity" />
-        <activity android:name=".Activities.AddList" />
+        <activity android:name=".Activities.shopping.ShoppingActivity" />
+        <activity android:name=".Activities.shopping.AddList" />
         <activity
             android:name=".Activities.LoginActivity"
             android:label="@string/title_activity_login"
@@ -28,12 +28,12 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".Activities.FlatActivity" />
-        <activity android:name=".Activities.DiscussionActivity" />
-        <activity android:name=".Activities.PaymentActivity" />
-        <activity android:name=".Activities.TaskActivity" />
+        <activity android:name=".Activities.flat.FlatActivity" />
+        <activity android:name=".Activities.discussion.DiscussionActivity" />
+        <activity android:name=".Activities.payment.PaymentActivity" />
+        <activity android:name=".Activities.task.TaskActivity" />
         <activity
-            android:name=".Activities.OpenList"
+            android:name=".Activities.shopping.OpenList"
             android:label="@string/title_activity_open_list"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>

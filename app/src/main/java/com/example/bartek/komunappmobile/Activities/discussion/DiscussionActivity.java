@@ -1,4 +1,4 @@
-package com.example.bartek.komunappmobile.Activities;
+package com.example.bartek.komunappmobile.Activities.discussion;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

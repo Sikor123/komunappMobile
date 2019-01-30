@@ -1,4 +1,4 @@
-package com.example.bartek.komunappmobile.Activities;
+package com.example.bartek.komunappmobile.Activities.shopping;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -54,7 +54,7 @@ public class ShoppingActivity extends AppCompatActivity {
     }
 
     public void addShoppingList(View view) {
-        Intent intent = new Intent(this,AddList.class);
+        Intent intent = new Intent(this, AddList.class);
         intent.putExtra("ListName", String.valueOf(listName.getText()));
         Log.e("pierwszy" , "jestem");
         startActivityForResult(intent, 999);

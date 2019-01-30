@@ -21,8 +21,6 @@ import com.example.bartek.komunappmobile.jsony.LoginBody;
 import com.example.bartek.komunappmobile.jsony.LoginResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import org.json.JSONException;
 import org.json.JSONObject;
 

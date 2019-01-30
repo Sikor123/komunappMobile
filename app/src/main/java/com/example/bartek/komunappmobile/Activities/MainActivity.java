@@ -6,6 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.bartek.komunappmobile.Activities.discussion.DiscussionActivity;
+import com.example.bartek.komunappmobile.Activities.flat.FlatActivity;
+import com.example.bartek.komunappmobile.Activities.payment.PaymentActivity;
+import com.example.bartek.komunappmobile.Activities.shopping.ShoppingActivity;
+import com.example.bartek.komunappmobile.Activities.task.TaskActivity;
 import com.example.bartek.komunappmobile.R;
 
 public class MainActivity extends AppCompatActivity {

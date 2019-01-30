@@ -1,4 +1,4 @@
-package com.example.bartek.komunappmobile.Activities;
+package com.example.bartek.komunappmobile.Activities.flat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,9 +13,10 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.bartek.komunappmobile.Activities.MainActivity;
 import com.example.bartek.komunappmobile.R;
-import com.example.bartek.komunappmobile.jsonObjectRequest.FlatRequest;
 import com.example.bartek.komunappmobile.jsony.FlatBody;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -56,16 +57,16 @@ public class FlatActivity extends AppCompatActivity {
     public void tapJoin(View v) throws JSONException {
         EditText flatName = findViewById(R.id.editFlatName);
         EditText password = findViewById(R.id.editPasswordFlat);
-        Log.e("RestResponse" , URL + devApi+"\n");
+
         FlatBody flatBody = new FlatBody(flatName.getText().toString() ,  password.getText().toString());
-        Log.e("RestResponse" , gson.toJson(flatBody));
+
 
         JsonObject json = new JsonParser().parse(gson.toJson(flatBody)).getAsJsonObject();
 
         JSONObject jo2 = new JSONObject(gson.toJson(flatBody));
         Log.e("Rest new" , jo2.toString());
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        FlatRequest objectRequest = new FlatRequest(
+        JsonObjectRequest objectRequest = new JsonObjectRequest(
                 Request.Method.PUT,
                 URL + devApi,
                 jo2,
