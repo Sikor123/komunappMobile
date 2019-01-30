@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -77,11 +78,19 @@ public class ShoppingActivity extends AppCompatActivity {
         }
 
         @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
+        public View getView(final int i, View view, ViewGroup viewGroup) {
             view = getLayoutInflater().inflate(R.layout.shopping_list_item,null);
             TextView textView = view.findViewById(R.id.shoppingListName);
-
+            ImageView listDelete = view.findViewById(R.id.listDelete);
             textView.setText(shoppingLists.get(i).getDescription());
+
+            listDelete.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    shoppingLists.remove(i);
+                    notifyDataSetChanged();
+                    //TODO POLACZYC Z API - WYSYLANIE REQUESTA DO USUNIECIA LISTY O ID i
+                }
+            });
             return view;
         }
     }
