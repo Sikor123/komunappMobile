@@ -7,6 +7,16 @@ import java.util.ArrayList;
 public class UserData  {
     private static ArrayList<ShoppingList> shoppingLists = new ArrayList<ShoppingList>();
     private static String token;
+    private static Integer flatId;
+
+
+    public static Integer getFlatId() {
+        return flatId;
+    }
+
+    public static void setFlatId(Integer flatId) {
+        UserData.flatId = flatId;
+    }
 
     public static String getToken() {
         return token;

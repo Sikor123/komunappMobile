@@ -2,7 +2,7 @@ package com.example.bartek.komunappmobile.jsony;
 
 public class FlatBody {
     private String flatName;
-    private String passwordhash;
+    private String pass;
 
     public String getFlatName() {
         return flatName;
@@ -12,16 +12,16 @@ public class FlatBody {
         this.flatName = flatName;
     }
 
-    public String getPasswordhash() {
-        return passwordhash;
+    public String getPass() {
+        return pass;
     }
 
-    public void setPasswordhash(String passwordhash) {
-        this.passwordhash = passwordhash;
+    public void setPass(String passwordhash) {
+        this.pass = pass;
     }
 
-    public FlatBody(String flatName, String passwordhash) {
+    public FlatBody(String flatName, String pass) {
         this.flatName = flatName;
-        this.passwordhash = passwordhash;
+        this.pass = pass;
     }
 }
