@@ -14,17 +14,36 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.bartek.komunappmobile.Activities.flat.AddFlat;
 import com.example.bartek.komunappmobile.R;
 import com.example.bartek.komunappmobile.data.UserData;
 import com.example.bartek.komunappmobile.dbObjects.ShoppingItem;
 import com.example.bartek.komunappmobile.dbObjects.ShoppingList;
+import com.example.bartek.komunappmobile.jsony.FlatBody;
+import com.google.gson.Gson;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ShoppingActivity extends AppCompatActivity {
     private ArrayList<ShoppingList> shoppingLists = UserData.getShoppingLists();
     EditText listName ;
     ListView listView;
+
+    String URL = "https://komunapp.herokuapp.com";
+    String devApi = "/flat";
+    Gson gson = new Gson();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +131,46 @@ public class ShoppingActivity extends AppCompatActivity {
         listName.setText("");
         Log.e("pierwszy" , "koniec");
     }
+
+//    private void updateList(){
+//
+//
+//        RequestQueue requestQueue = Volley.newRequestQueue(this);
+//
+//        JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.POST, URL + devApi, null,
+//                new Response.Listener<JSONObject>() {
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//                        try {
+//                            Integer flatId = response.getInt("id");
+//                            UserData.setFlatId(flatId);
+//                            Toast.makeText(ShoppingActivity.this, "shopping List updated", Toast.LENGTH_SHORT).show();
+//
+//                        } catch (JSONException e) {
+//                            Toast.makeText(ShoppingActivity.this, "error", Toast.LENGTH_SHORT).show();
+//                        }
+//
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        Log.e("RESPONSE ", error.toString());
+//                        Toast.makeText(ShoppingActivity.this, "Invalid Flatname or password", Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//        ){
+//            @Override
+//            public Map<String, String> getHeaders() throws AuthFailureError {
+//                HashMap<String, String> headers = new HashMap<String, String>();
+//                //headers.put("Content-Type", "application/json");
+//                headers.put("Authorization", "Bearer " + UserData.getToken());
+//                return headers;
+//            }
+//        };
+//
+//        requestQueue.add(objectRequest);
+//    }
 
 
 }
