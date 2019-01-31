@@ -132,14 +132,39 @@ public class OpenList extends AppCompatActivity {
 
             itemDelete.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                products.remove(i);
-                //TODO POLACZYC Z API - WYSYLANIE REQUESTA DO USUNIECIA ITEMU O ID i
 
+                    RequestQueue requestQueue = Volley.newRequestQueue(layout.getContext());
+                    JsonArrayRequest objectRequest = new JsonArrayRequest(Request.Method.DELETE, URL + "/items/" + products.get(i).getItemId(), null,
+                            new Response.Listener<JSONArray>() {
+                                @Override
+                                public void onResponse(JSONArray response) {
+
+                                }
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    Log.e("RESPONSE ", error.toString());
+
+                                }
+                            }
+                    ){
+                        @Override
+                        public Map<String, String> getHeaders() throws AuthFailureError {
+                            HashMap<String, String> headers = new HashMap<String, String>();
+                            headers.put("Content-Type", "application/json");
+                            headers.put("Authorization", "Bearer " + UserData.getToken());
+                            return headers;
+                        }
+                    };
+
+                    requestQueue.add(objectRequest);
+                    //startsActivity();
+                    products.remove(i);
                 notifyDataSetChanged();
 
             }
         });
-
             textView.setText(products.get(i).getDescription());
             return view;
         }

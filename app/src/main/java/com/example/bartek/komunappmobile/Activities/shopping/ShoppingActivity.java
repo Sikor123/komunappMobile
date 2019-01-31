@@ -67,7 +67,7 @@ public class ShoppingActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.e("RESPONSE ", error.toString());
-                        Toast.makeText(ShoppingActivity.this, "Invalid Flatname or password", Toast.LENGTH_SHORT).show();
+
                     }
                 }
         ){
@@ -108,7 +108,6 @@ public class ShoppingActivity extends AppCompatActivity {
     public void addShoppingList(View view) {
         Intent intent = new Intent(this, AddList.class);
         intent.putExtra("ListName", String.valueOf(listName.getText()));
-        Log.e("pierwszy" , "jestem");
         startActivityForResult(intent, 999);
     }
 
@@ -132,15 +131,41 @@ public class ShoppingActivity extends AppCompatActivity {
         @Override
         public View getView(final int i, View view, ViewGroup viewGroup) {
             view = getLayoutInflater().inflate(R.layout.shopping_list_item,null);
-            TextView textView = view.findViewById(R.id.shoppingListName);
+            final TextView textView = view.findViewById(R.id.shoppingListName);
             ImageView listDelete = view.findViewById(R.id.listDelete);
             textView.setText(shoppingLists.get(i).getDescription());
 
             listDelete.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
+                    RequestQueue requestQueue = Volley.newRequestQueue(textView.getContext());
+                    JsonArrayRequest objectRequest = new JsonArrayRequest(Request.Method.DELETE, URL + "/shoppingList/" + shoppingLists.get(i).getShoppingListId(), null,
+                            new Response.Listener<JSONArray>() {
+                                @Override
+                                public void onResponse(JSONArray response) {
+
+                                }
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    Log.e("RESPONSE ", error.toString());
+                                    Toast.makeText(ShoppingActivity.this, "Invalid Flatname or password", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                    ){
+                        @Override
+                        public Map<String, String> getHeaders() throws AuthFailureError {
+                            HashMap<String, String> headers = new HashMap<String, String>();
+                            headers.put("Content-Type", "application/json");
+                            headers.put("Authorization", "Bearer " + UserData.getToken());
+                            return headers;
+                        }
+                    };
+
+                    requestQueue.add(objectRequest);
+                    //startsActivity();
                     shoppingLists.remove(i);
                     notifyDataSetChanged();
-                    //TODO POLACZYC Z API - WYSYLANIE REQUESTA DO USUNIECIA LISTY O ID i
                 }
             });
             return view;
