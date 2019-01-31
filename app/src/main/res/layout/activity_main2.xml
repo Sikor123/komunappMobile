@@ -90,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:drawableTop="@drawable/shopping"
                     android:textColor="@color/colorAccent"
-                    android:text="shopping"
+                    android:text="zakupy"
                     android:layout_alignParentRight="true"
                     android:textStyle="bold|italic"
                     android:paddingRight="30dp"/>
@@ -122,7 +122,7 @@
                     android:layout_height="wrap_content"
                     android:drawableTop="@drawable/platnosci"
                     android:textColor="@color/colorAccent"
-                    android:text="Zakupy"
+                    android:text="Płatności"
                     android:layout_alignParentRight="true"
                     android:textStyle="bold|italic"
                     android:paddingRight="30dp"/>
