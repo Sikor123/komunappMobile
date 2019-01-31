@@ -13,7 +13,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Activities.SignupActivity"></activity>
         <activity android:name=".Activities.flat.AddFlat" />
-        <activity android:name=".Activities.MainActivity"></activity>
+        <activity android:name=".Activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".Activities.shopping.ShoppingActivity" />
         <activity android:name=".Activities.shopping.AddList" />
         <activity
