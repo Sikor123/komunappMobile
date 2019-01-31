@@ -78,6 +78,7 @@ public class FlatActivity extends AppCompatActivity {
                             Toast.makeText(FlatActivity.this, "There is no id in this json", Toast.LENGTH_SHORT).show();
                         }
                         startsActivity();
+                        finish();
                     }
                 },
                 new Response.ErrorListener() {
@@ -88,12 +89,12 @@ public class FlatActivity extends AppCompatActivity {
                     }
                 }
         ){
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                HashMap<String, String> headers = new HashMap<String, String>();
-                //headers.put("Content-Type", "application/json");
-                headers.put("Authorization", "Bearer " + UserData.getToken());
-                return headers;
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    HashMap<String, String> headers = new HashMap<String, String>();
+                    //headers.put("Content-Type", "application/json");
+                    headers.put("Authorization", "Bearer " + UserData.getToken());
+                    return headers;
             }
         };
         requestQueue.add(objectRequest);

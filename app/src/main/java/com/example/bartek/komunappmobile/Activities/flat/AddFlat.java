@@ -20,8 +20,6 @@ import com.example.bartek.komunappmobile.R;
 import com.example.bartek.komunappmobile.data.UserData;
 import com.example.bartek.komunappmobile.jsony.FlatBody;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -61,6 +59,7 @@ public class AddFlat extends AppCompatActivity {
                             Toast.makeText(AddFlat.this, "There is no id in this json", Toast.LENGTH_SHORT).show();
                         }
                         startsActivity();
+                        finish();
                     }
                 },
                 new Response.ErrorListener() {

@@ -41,7 +41,6 @@ public class LoginActivity extends AppCompatActivity {
         EditText password = findViewById(R.id.editPassword);
 
         LoginBody loginBody = new LoginBody(login.getText().toString() ,  password.getText().toString());
-
         JSONObject jo2 = new JSONObject(gson.toJson(loginBody));
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
